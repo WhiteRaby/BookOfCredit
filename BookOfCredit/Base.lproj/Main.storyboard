@@ -1,26 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bs4-K7-lGE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="CGj-Rb-fIi">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <navigationController id="Bs4-K7-lGE" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MOo-h8-mKF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="THG-bS-EgV" kind="relationship" relationship="rootViewController" id="heD-by-C4t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lvd-tm-zTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-231"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qUs-26-ZKw">
+            <objects>
+                <viewController id="kSd-oh-sQm" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="hOW-bx-qC4"/>
+                        <viewControllerLayoutGuide type="bottom" id="e2S-7B-49A"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="s6D-0J-JyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MXn-KP-nNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1092.5" y="-231.5"/>
+        </scene>
+        <!--Должники-->
+        <scene sceneID="PeC-nE-xDQ">
+            <objects>
+                <viewController id="THG-bS-EgV" customClass="BOCCreditsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HJw-eE-wFg"/>
+                        <viewControllerLayoutGuide type="bottom" id="TWZ-Hu-3lq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CUg-P5-d9b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sz6-9n-edU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="THG-bS-EgV" id="Ybj-MV-Rp1"/>
+                                    <outlet property="delegate" destination="THG-bS-EgV" id="dlW-Oa-zoK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sz6-9n-edU" firstAttribute="top" secondItem="CUg-P5-d9b" secondAttribute="topMargin" id="NIq-Qe-7cY"/>
+                            <constraint firstItem="Sz6-9n-edU" firstAttribute="leading" secondItem="CUg-P5-d9b" secondAttribute="leadingMargin" constant="-16" id="Nda-1Y-Nnh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sz6-9n-edU" secondAttribute="trailing" constant="-16" id="RTL-Vm-uFg"/>
+                            <constraint firstItem="TWZ-Hu-3lq" firstAttribute="top" secondItem="Sz6-9n-edU" secondAttribute="bottom" id="xsV-9h-Ofq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Должники" id="b26-cU-cAc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tep-DE-u0g">
+                            <connections>
+                                <action selector="actionAddDebtor:" destination="THG-bS-EgV" id="N4s-1a-CVO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Sz6-9n-edU" id="k28-ME-gM2"/>
+                        <segue destination="kSd-oh-sQm" kind="show" identifier="DebtorDetailSegue" id="eI9-sa-Gcf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdf-JE-jAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543.5" y="-231.5"/>
         </scene>
     </scenes>
 </document>

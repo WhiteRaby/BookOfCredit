@@ -14,6 +14,14 @@
 		A82313F31C6390D600D93592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82313F21C6390D600D93592 /* Assets.xcassets */; };
 		A82313F61C6390D600D93592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82313F41C6390D600D93592 /* LaunchScreen.storyboard */; };
 		A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313FE1C63915600D93592 /* BOCDataManager.m */; };
+		A82314051C6399DF00D93592 /* BOCCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314041C6399DF00D93592 /* BOCCreditsViewController.m */; };
+		A82314131C63A22200D93592 /* BOCDebt+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314081C63A22200D93592 /* BOCDebt+CoreDataProperties.m */; };
+		A82314141C63A22200D93592 /* BOCDebt.m in Sources */ = {isa = PBXBuildFile; fileRef = A823140A1C63A22200D93592 /* BOCDebt.m */; };
+		A82314151C63A22200D93592 /* BOCDebtor+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A823140C1C63A22200D93592 /* BOCDebtor+CoreDataProperties.m */; };
+		A82314161C63A22200D93592 /* BOCDebtor.m in Sources */ = {isa = PBXBuildFile; fileRef = A823140E1C63A22200D93592 /* BOCDebtor.m */; };
+		A82314171C63A22200D93592 /* BOCCurrency+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314101C63A22200D93592 /* BOCCurrency+CoreDataProperties.m */; };
+		A82314181C63A22200D93592 /* BOCCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314121C63A22200D93592 /* BOCCurrency.m */; };
+		A823141B1C63DBAA00D93592 /* BOCDebtorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +36,22 @@
 		A82313F71C6390D600D93592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A82313FD1C63915600D93592 /* BOCDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDataManager.h; sourceTree = "<group>"; };
 		A82313FE1C63915600D93592 /* BOCDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDataManager.m; sourceTree = "<group>"; };
+		A82314031C6399DF00D93592 /* BOCCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCCreditsViewController.h; sourceTree = "<group>"; };
+		A82314041C6399DF00D93592 /* BOCCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCCreditsViewController.m; sourceTree = "<group>"; };
+		A82314071C63A22200D93592 /* BOCDebt+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOCDebt+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A82314081C63A22200D93592 /* BOCDebt+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BOCDebt+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A82314091C63A22200D93592 /* BOCDebt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebt.h; sourceTree = "<group>"; };
+		A823140A1C63A22200D93592 /* BOCDebt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDebt.m; sourceTree = "<group>"; };
+		A823140B1C63A22200D93592 /* BOCDebtor+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOCDebtor+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A823140C1C63A22200D93592 /* BOCDebtor+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BOCDebtor+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A823140D1C63A22200D93592 /* BOCDebtor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebtor.h; sourceTree = "<group>"; };
+		A823140E1C63A22200D93592 /* BOCDebtor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDebtor.m; sourceTree = "<group>"; };
+		A823140F1C63A22200D93592 /* BOCCurrency+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOCCurrency+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A82314101C63A22200D93592 /* BOCCurrency+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BOCCurrency+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A82314111C63A22200D93592 /* BOCCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCCurrency.h; sourceTree = "<group>"; };
+		A82314121C63A22200D93592 /* BOCCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCCurrency.m; sourceTree = "<group>"; };
+		A82314191C63DBAA00D93592 /* BOCDebtorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebtorDetailViewController.h; sourceTree = "<group>"; };
+		A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDebtorDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +84,15 @@
 		A82313E21C6390D600D93592 /* BookOfCredit */ = {
 			isa = PBXGroup;
 			children = (
+				A82314061C63A20A00D93592 /* Models */,
 				A82313E61C6390D600D93592 /* BOCAppDelegate.h */,
 				A82313E71C6390D600D93592 /* BOCAppDelegate.m */,
 				A82313FD1C63915600D93592 /* BOCDataManager.h */,
 				A82313FE1C63915600D93592 /* BOCDataManager.m */,
+				A82314031C6399DF00D93592 /* BOCCreditsViewController.h */,
+				A82314041C6399DF00D93592 /* BOCCreditsViewController.m */,
+				A82314191C63DBAA00D93592 /* BOCDebtorDetailViewController.h */,
+				A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */,
 				A82313EC1C6390D600D93592 /* Main.storyboard */,
 				A82313F21C6390D600D93592 /* Assets.xcassets */,
 				A82313F41C6390D600D93592 /* LaunchScreen.storyboard */,
@@ -80,6 +109,25 @@
 				A82313E41C6390D600D93592 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A82314061C63A20A00D93592 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A823140B1C63A22200D93592 /* BOCDebtor+CoreDataProperties.h */,
+				A823140C1C63A22200D93592 /* BOCDebtor+CoreDataProperties.m */,
+				A823140D1C63A22200D93592 /* BOCDebtor.h */,
+				A823140E1C63A22200D93592 /* BOCDebtor.m */,
+				A82314071C63A22200D93592 /* BOCDebt+CoreDataProperties.h */,
+				A82314081C63A22200D93592 /* BOCDebt+CoreDataProperties.m */,
+				A82314091C63A22200D93592 /* BOCDebt.h */,
+				A823140A1C63A22200D93592 /* BOCDebt.m */,
+				A823140F1C63A22200D93592 /* BOCCurrency+CoreDataProperties.h */,
+				A82314101C63A22200D93592 /* BOCCurrency+CoreDataProperties.m */,
+				A82314111C63A22200D93592 /* BOCCurrency.h */,
+				A82314121C63A22200D93592 /* BOCCurrency.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +201,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82314151C63A22200D93592 /* BOCDebtor+CoreDataProperties.m in Sources */,
+				A82314161C63A22200D93592 /* BOCDebtor.m in Sources */,
+				A82314141C63A22200D93592 /* BOCDebt.m in Sources */,
+				A82314051C6399DF00D93592 /* BOCCreditsViewController.m in Sources */,
+				A82314181C63A22200D93592 /* BOCCurrency.m in Sources */,
 				A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */,
 				A82313F11C6390D600D93592 /* BookOfCredit.xcdatamodeld in Sources */,
+				A82314131C63A22200D93592 /* BOCDebt+CoreDataProperties.m in Sources */,
+				A823141B1C63DBAA00D93592 /* BOCDebtorDetailViewController.m in Sources */,
 				A82313E81C6390D600D93592 /* BOCAppDelegate.m in Sources */,
+				A82314171C63A22200D93592 /* BOCCurrency+CoreDataProperties.m in Sources */,
 				A82313E51C6390D600D93592 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

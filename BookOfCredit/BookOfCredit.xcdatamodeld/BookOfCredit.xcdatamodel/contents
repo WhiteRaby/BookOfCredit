@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="BOCCurrency" representedClassName="BOCCurrency" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BOCDebt" inverseName="currency" inverseEntity="BOCDebt" syncable="YES"/>
+    </entity>
+    <entity name="BOCDebt" representedClassName="BOCDebt" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isBorrow" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BOCCurrency" inverseName="debts" inverseEntity="BOCCurrency" syncable="YES"/>
+        <relationship name="debtor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BOCDebtor" inverseName="debts" inverseEntity="BOCDebtor" syncable="YES"/>
+    </entity>
+    <entity name="BOCDebtor" representedClassName="BOCDebtor" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="debts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BOCDebt" inverseName="debtor" inverseEntity="BOCDebt" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BOCCurrency" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="BOCDebt" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="BOCDebtor" positionX="0" positionY="0" width="128" height="90"/>
+    </elements>
 </model>
