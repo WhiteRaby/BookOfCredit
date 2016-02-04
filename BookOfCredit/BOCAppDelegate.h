@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AppDelegate.h
 //  BookOfCredit
 //
 //  Created by Alexandr on 04.02.16.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface BOCAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) UIWindow *window;
 
 @end
 

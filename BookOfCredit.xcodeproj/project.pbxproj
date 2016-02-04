@@ -8,26 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		A82313E51C6390D600D93592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313E41C6390D600D93592 /* main.m */; };
-		A82313E81C6390D600D93592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313E71C6390D600D93592 /* AppDelegate.m */; };
-		A82313EB1C6390D600D93592 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313EA1C6390D600D93592 /* ViewController.m */; };
+		A82313E81C6390D600D93592 /* BOCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313E71C6390D600D93592 /* BOCAppDelegate.m */; };
 		A82313EE1C6390D600D93592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82313EC1C6390D600D93592 /* Main.storyboard */; };
 		A82313F11C6390D600D93592 /* BookOfCredit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A82313EF1C6390D600D93592 /* BookOfCredit.xcdatamodeld */; };
 		A82313F31C6390D600D93592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82313F21C6390D600D93592 /* Assets.xcassets */; };
 		A82313F61C6390D600D93592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82313F41C6390D600D93592 /* LaunchScreen.storyboard */; };
+		A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313FE1C63915600D93592 /* BOCDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A82313E01C6390D600D93592 /* BookOfCredit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookOfCredit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82313E41C6390D600D93592 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A82313E61C6390D600D93592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A82313E71C6390D600D93592 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A82313E91C6390D600D93592 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A82313EA1C6390D600D93592 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A82313E61C6390D600D93592 /* BOCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BOCAppDelegate.h; sourceTree = "<group>"; };
+		A82313E71C6390D600D93592 /* BOCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BOCAppDelegate.m; sourceTree = "<group>"; };
 		A82313ED1C6390D600D93592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A82313F01C6390D600D93592 /* BookOfCredit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookOfCredit.xcdatamodel; sourceTree = "<group>"; };
 		A82313F21C6390D600D93592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A82313F51C6390D600D93592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A82313F71C6390D600D93592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A82313FD1C63915600D93592 /* BOCDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDataManager.h; sourceTree = "<group>"; };
+		A82313FE1C63915600D93592 /* BOCDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +60,10 @@
 		A82313E21C6390D600D93592 /* BookOfCredit */ = {
 			isa = PBXGroup;
 			children = (
-				A82313E61C6390D600D93592 /* AppDelegate.h */,
-				A82313E71C6390D600D93592 /* AppDelegate.m */,
-				A82313E91C6390D600D93592 /* ViewController.h */,
-				A82313EA1C6390D600D93592 /* ViewController.m */,
+				A82313E61C6390D600D93592 /* BOCAppDelegate.h */,
+				A82313E71C6390D600D93592 /* BOCAppDelegate.m */,
+				A82313FD1C63915600D93592 /* BOCDataManager.h */,
+				A82313FE1C63915600D93592 /* BOCDataManager.m */,
 				A82313EC1C6390D600D93592 /* Main.storyboard */,
 				A82313F21C6390D600D93592 /* Assets.xcassets */,
 				A82313F41C6390D600D93592 /* LaunchScreen.storyboard */,
@@ -153,9 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */,
 				A82313F11C6390D600D93592 /* BookOfCredit.xcdatamodeld in Sources */,
-				A82313EB1C6390D600D93592 /* ViewController.m in Sources */,
-				A82313E81C6390D600D93592 /* AppDelegate.m in Sources */,
+				A82313E81C6390D600D93592 /* BOCAppDelegate.m in Sources */,
 				A82313E51C6390D600D93592 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
