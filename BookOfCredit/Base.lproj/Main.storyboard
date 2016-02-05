@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="-231"/>
         </scene>
-        <!--View Controller-->
+        <!--Debtor Detail View Controller-->
         <scene sceneID="qUs-26-ZKw">
             <objects>
-                <viewController id="kSd-oh-sQm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DebtorDetail" id="kSd-oh-sQm" customClass="BOCDebtorDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hOW-bx-qC4"/>
                         <viewControllerLayoutGuide type="bottom" id="e2S-7B-49A"/>
@@ -34,8 +34,37 @@
                     <view key="view" contentMode="scaleToFill" id="s6D-0J-JyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-i5-Nh0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kSd-oh-sQm" id="vDT-NC-f7Y"/>
+                                    <outlet property="delegate" destination="kSd-oh-sQm" id="gkF-gG-Upd"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gIw-pT-rvq">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="hwH-u9-kE4"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XE3-i5-Nh0" secondAttribute="trailing" id="3GL-S9-2xB"/>
+                            <constraint firstItem="XE3-i5-Nh0" firstAttribute="leading" secondItem="s6D-0J-JyO" secondAttribute="leading" id="5ow-BR-ctB"/>
+                            <constraint firstItem="XE3-i5-Nh0" firstAttribute="top" secondItem="s6D-0J-JyO" secondAttribute="top" id="bdf-81-LxT"/>
+                            <constraint firstItem="XE3-i5-Nh0" firstAttribute="bottom" secondItem="e2S-7B-49A" secondAttribute="top" id="lGQ-o6-b5g"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bpx-Jn-f4r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qfC-xq-MtA"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="XE3-i5-Nh0" id="9pQ-V5-dOk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXn-KP-nNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +73,7 @@
         <!--Должники-->
         <scene sceneID="PeC-nE-xDQ">
             <objects>
-                <viewController id="THG-bS-EgV" customClass="BOCCreditsViewController" sceneMemberID="viewController">
+                <viewController id="THG-bS-EgV" customClass="BOCDebtorsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HJw-eE-wFg"/>
                         <viewControllerLayoutGuide type="bottom" id="TWZ-Hu-3lq"/>

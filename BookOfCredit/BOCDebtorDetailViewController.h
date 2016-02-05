@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BOCDebtorDetailViewController : UIViewController
+@class BOCDebtor;
 
+@interface BOCDebtorDetailViewController : UIViewController
+@property (strong, nonatomic) BOCDebtor *debtor;
 @end

@@ -14,7 +14,7 @@
 		A82313F31C6390D600D93592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82313F21C6390D600D93592 /* Assets.xcassets */; };
 		A82313F61C6390D600D93592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82313F41C6390D600D93592 /* LaunchScreen.storyboard */; };
 		A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A82313FE1C63915600D93592 /* BOCDataManager.m */; };
-		A82314051C6399DF00D93592 /* BOCCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314041C6399DF00D93592 /* BOCCreditsViewController.m */; };
+		A82314051C6399DF00D93592 /* BOCDebtorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314041C6399DF00D93592 /* BOCDebtorsViewController.m */; };
 		A82314131C63A22200D93592 /* BOCDebt+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314081C63A22200D93592 /* BOCDebt+CoreDataProperties.m */; };
 		A82314141C63A22200D93592 /* BOCDebt.m in Sources */ = {isa = PBXBuildFile; fileRef = A823140A1C63A22200D93592 /* BOCDebt.m */; };
 		A82314151C63A22200D93592 /* BOCDebtor+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A823140C1C63A22200D93592 /* BOCDebtor+CoreDataProperties.m */; };
@@ -36,8 +36,8 @@
 		A82313F71C6390D600D93592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A82313FD1C63915600D93592 /* BOCDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDataManager.h; sourceTree = "<group>"; };
 		A82313FE1C63915600D93592 /* BOCDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDataManager.m; sourceTree = "<group>"; };
-		A82314031C6399DF00D93592 /* BOCCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCCreditsViewController.h; sourceTree = "<group>"; };
-		A82314041C6399DF00D93592 /* BOCCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCCreditsViewController.m; sourceTree = "<group>"; };
+		A82314031C6399DF00D93592 /* BOCDebtorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebtorsViewController.h; sourceTree = "<group>"; };
+		A82314041C6399DF00D93592 /* BOCDebtorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDebtorsViewController.m; sourceTree = "<group>"; };
 		A82314071C63A22200D93592 /* BOCDebt+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOCDebt+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A82314081C63A22200D93592 /* BOCDebt+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BOCDebt+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A82314091C63A22200D93592 /* BOCDebt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebt.h; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 				A82313E71C6390D600D93592 /* BOCAppDelegate.m */,
 				A82313FD1C63915600D93592 /* BOCDataManager.h */,
 				A82313FE1C63915600D93592 /* BOCDataManager.m */,
-				A82314031C6399DF00D93592 /* BOCCreditsViewController.h */,
-				A82314041C6399DF00D93592 /* BOCCreditsViewController.m */,
+				A82314031C6399DF00D93592 /* BOCDebtorsViewController.h */,
+				A82314041C6399DF00D93592 /* BOCDebtorsViewController.m */,
 				A82314191C63DBAA00D93592 /* BOCDebtorDetailViewController.h */,
 				A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */,
 				A82313EC1C6390D600D93592 /* Main.storyboard */,
@@ -204,7 +204,7 @@
 				A82314151C63A22200D93592 /* BOCDebtor+CoreDataProperties.m in Sources */,
 				A82314161C63A22200D93592 /* BOCDebtor.m in Sources */,
 				A82314141C63A22200D93592 /* BOCDebt.m in Sources */,
-				A82314051C6399DF00D93592 /* BOCCreditsViewController.m in Sources */,
+				A82314051C6399DF00D93592 /* BOCDebtorsViewController.m in Sources */,
 				A82314181C63A22200D93592 /* BOCCurrency.m in Sources */,
 				A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */,
 				A82313F11C6390D600D93592 /* BookOfCredit.xcdatamodeld in Sources */,

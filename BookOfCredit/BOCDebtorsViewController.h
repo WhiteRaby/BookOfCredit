@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BOCCreditsViewController : UIViewController
+@interface BOCDebtorsViewController : UIViewController
 
 @end

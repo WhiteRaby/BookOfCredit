@@ -6,19 +6,20 @@
 //  Copyright © 2016 Alexandr. All rights reserved.
 //
 
-#import "BOCCreditsViewController.h"
+#import "BOCDebtorsViewController.h"
 #import <CoreData/CoreData.h>
 #import "BOCDataManager.h"
 #import "BOCDebtor.h"
+#import "BOCDebtorDetailViewController.h"
 
-@interface BOCCreditsViewController () <NSFetchedResultsControllerDelegate>
+@interface BOCDebtorsViewController () <NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
-@implementation BOCCreditsViewController
+@implementation BOCDebtorsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -94,17 +95,6 @@
     [self.managedObjectContext save:nil];
 }
 
-#pragma mark - NSManagedObjectContext
-
-- (NSManagedObjectContext*)managedObjectContext {
-    
-    if (!_managedObjectContext) {
-        _managedObjectContext = [[BOCDataManager sharedManager] managedObjectContext];
-    }
-    
-    return _managedObjectContext;
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -127,6 +117,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [UIColor colorWithRed:0.9f green:1.f blue:0.9f alpha:1.f];
     }
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -161,7 +152,10 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     //[self performSegueWithIdentifier:@"DebtorDetailSegue" sender:self];
-    tableView 
+    //BOCDebtorDetailViewController *vc = [[BOCDebtorDetailViewController alloc] init];
+    BOCDebtorDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DebtorDetail"];
+    vc.debtor = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -275,5 +269,15 @@
     [self.tableView endUpdates];
 }
 
+#pragma mark - NSManagedObjectContext
+
+- (NSManagedObjectContext*)managedObjectContext {
+    
+    if (!_managedObjectContext) {
+        _managedObjectContext = [[BOCDataManager sharedManager] managedObjectContext];
+    }
+    
+    return _managedObjectContext;
+}
 
 @end
