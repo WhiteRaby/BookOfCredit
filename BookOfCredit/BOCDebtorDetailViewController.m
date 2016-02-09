@@ -11,8 +11,9 @@
 #import "BOCDataManager.h"
 #import "BOCDebt.h"
 #import "BOCDebtor.h"
+#import "BOCDebtTableViewCell.h"
 
-@interface BOCDebtorDetailViewController () <NSFetchedResultsControllerDelegate>
+@interface BOCDebtorDetailViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
@@ -27,7 +28,9 @@
     self.title = [NSString stringWithFormat:@"%@ %@",
                   self.debtor.firstName, self.debtor.lastName];
     
-    
+    //self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+
+    //self.navigationController.navigationBar.topItem.title = @"Назад";
     
     /*
     BOCDebt *debt1 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
@@ -50,6 +53,17 @@
     
 }
 
+- (IBAction)actionAddDebt:(id)sender {
+//    BOCDebt *debt1 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
+//                                                   inManagedObjectContext:[self managedObjectContext]];
+//    debt1.amount = @123;
+//    debt1.debtor = self.debtor;
+//    [self.managedObjectContext save:nil];
+    
+    UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BOCNewDebtViewController"];
+    //[self.navigationController pushViewController:vc animated:NO];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -65,27 +79,39 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *reuseIdentifier = @"Cell";
+    static NSString *reuseIdentifier = @"BOCDebtTableViewCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    BOCDebtTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
+                                                                 forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    }
     
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.f;
+}
+
 #pragma mark - UITableView
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(BOCDebtTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     BOCDebt *debt = [self.fetchedResultsController objectAtIndexPath:indexPath];
     //NSLog(@"amount = %@, debtor = %@", debt.amount, debt.debtor);
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", debt.amount];
+    cell.amount.text = [NSString stringWithFormat:@"%@", debt.amount];
+    if (arc4random_uniform(2)) {
+        cell.currency.image = [UIImage imageNamed:@"euro"];
+    } else {
+        cell.currency.image = [UIImage imageNamed:@"dollar"];
+    }
 }
 
 #pragma mark - NSFetchedResultsController

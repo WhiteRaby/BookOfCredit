@@ -22,6 +22,8 @@
 		A82314171C63A22200D93592 /* BOCCurrency+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314101C63A22200D93592 /* BOCCurrency+CoreDataProperties.m */; };
 		A82314181C63A22200D93592 /* BOCCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314121C63A22200D93592 /* BOCCurrency.m */; };
 		A823141B1C63DBAA00D93592 /* BOCDebtorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */; };
+		A823141E1C64B8FF00D93592 /* BOCDebtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A823141D1C64B8FF00D93592 /* BOCDebtTableViewCell.m */; };
+		A82314211C64E3BD00D93592 /* BOCNewDebtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82314201C64E3BD00D93592 /* BOCNewDebtViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,10 @@
 		A82314121C63A22200D93592 /* BOCCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCCurrency.m; sourceTree = "<group>"; };
 		A82314191C63DBAA00D93592 /* BOCDebtorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebtorDetailViewController.h; sourceTree = "<group>"; };
 		A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDebtorDetailViewController.m; sourceTree = "<group>"; };
+		A823141C1C64B8FF00D93592 /* BOCDebtTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCDebtTableViewCell.h; sourceTree = "<group>"; };
+		A823141D1C64B8FF00D93592 /* BOCDebtTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCDebtTableViewCell.m; sourceTree = "<group>"; };
+		A823141F1C64E3BD00D93592 /* BOCNewDebtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOCNewDebtViewController.h; sourceTree = "<group>"; };
+		A82314201C64E3BD00D93592 /* BOCNewDebtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOCNewDebtViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				A82314041C6399DF00D93592 /* BOCDebtorsViewController.m */,
 				A82314191C63DBAA00D93592 /* BOCDebtorDetailViewController.h */,
 				A823141A1C63DBAA00D93592 /* BOCDebtorDetailViewController.m */,
+				A823141C1C64B8FF00D93592 /* BOCDebtTableViewCell.h */,
+				A823141D1C64B8FF00D93592 /* BOCDebtTableViewCell.m */,
+				A823141F1C64E3BD00D93592 /* BOCNewDebtViewController.h */,
+				A82314201C64E3BD00D93592 /* BOCNewDebtViewController.m */,
 				A82313EC1C6390D600D93592 /* Main.storyboard */,
 				A82313F21C6390D600D93592 /* Assets.xcassets */,
 				A82313F41C6390D600D93592 /* LaunchScreen.storyboard */,
@@ -204,7 +214,9 @@
 				A82314151C63A22200D93592 /* BOCDebtor+CoreDataProperties.m in Sources */,
 				A82314161C63A22200D93592 /* BOCDebtor.m in Sources */,
 				A82314141C63A22200D93592 /* BOCDebt.m in Sources */,
+				A82314211C64E3BD00D93592 /* BOCNewDebtViewController.m in Sources */,
 				A82314051C6399DF00D93592 /* BOCDebtorsViewController.m in Sources */,
+				A823141E1C64B8FF00D93592 /* BOCDebtTableViewCell.m in Sources */,
 				A82314181C63A22200D93592 /* BOCCurrency.m in Sources */,
 				A82313FF1C63915600D93592 /* BOCDataManager.m in Sources */,
 				A82313F11C6390D600D93592 /* BookOfCredit.xcdatamodeld in Sources */,

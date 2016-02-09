@@ -34,7 +34,7 @@
     
     [self.managedObjectContext save:nil];*/
     
-    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 #pragma mark - Action Methods
