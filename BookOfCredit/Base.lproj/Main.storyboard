@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bs4-K7-lGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bs4-K7-lGE">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -122,22 +122,22 @@
         <scene sceneID="5ty-5D-rcy">
             <objects>
                 <tableViewController storyboardIdentifier="BOCNewDebtViewController" autoresizesArchivedViewToFullSize="NO" id="cNX-nb-vVe" customClass="BOCNewDebtViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="tD1-QB-3Yr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="tD1-QB-3Yr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Новый долг" id="3pq-eL-qId">
+                            <tableViewSection headerTitle="Описание долга" id="3pq-eL-qId">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="46" id="7pV-jU-mDx">
-                                        <rect key="frame" x="0.0" y="49.5" width="375" height="46"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="375" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7pV-jU-mDx" id="BW2-gi-rpV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MrO-ip-seB">
-                                                    <rect key="frame" x="8" y="9" width="359" height="29"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
                                                     <segments>
                                                         <segment title="Вам должны"/>
                                                         <segment title="Вы должны"/>
@@ -147,7 +147,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="46" id="nJz-Aw-k8o">
-                                        <rect key="frame" x="0.0" y="95.5" width="375" height="46"/>
+                                        <rect key="frame" x="0.0" y="159.5" width="375" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nJz-Aw-k8o" id="x2W-c4-MQp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
@@ -166,9 +166,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MXm-8h-XIV">
-                                                    <rect key="frame" x="86" y="7" width="165" height="30"/>
+                                                    <rect key="frame" x="70" y="7" width="195" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -178,7 +178,7 @@
                             <tableViewSection headerTitle="Валюта" id="GYH-xO-Frh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="etJ-1G-7pY">
-                                        <rect key="frame" x="0.0" y="174.5" width="375" height="103"/>
+                                        <rect key="frame" x="0.0" y="238.5" width="375" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="etJ-1G-7pY" id="4a3-Yb-6QL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="102.5"/>
@@ -199,7 +199,7 @@
                             <tableViewSection headerTitle="Долг на определённый срок" id="KeO-wA-1tB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="Y4A-jh-yri">
-                                        <rect key="frame" x="0.0" y="310.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="374.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4A-jh-yri" id="rFv-SQ-pnc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -221,7 +221,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="147" id="Hdw-xX-DFu">
-                                        <rect key="frame" x="0.0" y="360.5" width="375" height="147"/>
+                                        <rect key="frame" x="0.0" y="424.5" width="375" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hdw-xX-DFu" id="MOf-Fj-S7A">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="146.5"/>
@@ -241,15 +241,15 @@
                             <tableViewSection headerTitle="Сохранение" id="Nkg-w7-5r3">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="58B-E4-43h">
-                                        <rect key="frame" x="0.0" y="540.5" width="375" height="59"/>
+                                        <rect key="frame" x="0.0" y="604.5" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="58B-E4-43h" id="D1a-W8-Yd5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btc-mp-Nex">
-                                                    <rect key="frame" x="40" y="15" width="88" height="30"/>
-                                                    <state key="normal" title="Отмена" backgroundImage="frame_blue">
+                                                    <rect key="frame" x="8" y="14" width="175" height="30"/>
+                                                    <state key="normal" title="Отмена" backgroundImage="frame_blue_long">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -257,9 +257,9 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e98-W5-g0O">
-                                                    <rect key="frame" x="247" y="15" width="90" height="30"/>
+                                                    <rect key="frame" x="192" y="14" width="175" height="30"/>
                                                     <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                                                    <state key="normal" title="Сохранить" backgroundImage="frame_blue"/>
+                                                    <state key="normal" title="Сохранить" backgroundImage="frame_blue_long"/>
                                                     <connections>
                                                         <action selector="actionSave:" destination="cNX-nb-vVe" eventType="touchUpInside" id="8JL-hb-zFa"/>
                                                     </connections>
@@ -275,12 +275,15 @@
                             <outlet property="delegate" destination="cNX-nb-vVe" id="l8U-fL-Eri"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="amountStepper" destination="duV-Oc-APq" id="PPz-W4-blq"/>
                         <outlet property="amountTextView" destination="MXm-8h-XIV" id="lLk-Qr-x0e"/>
                         <outlet property="borrowSegmentedControl" destination="MrO-ip-seB" id="WK1-Kc-q1h"/>
                         <outlet property="currencyPickerView" destination="p0g-Jg-3f3" id="pMH-vF-VTt"/>
+                        <outlet property="dateCell" destination="Hdw-xX-DFu" id="axd-hn-ywJ"/>
                         <outlet property="dateOnSwitch" destination="7Fn-yd-Of5" id="sQp-iv-yP1"/>
                         <outlet property="datePicker" destination="C8b-ZN-dCl" id="TEx-jt-oAO"/>
                     </connections>
@@ -337,6 +340,6 @@
     </scenes>
     <resources>
         <image name="frame" width="500" height="150"/>
-        <image name="frame_blue" width="500" height="150"/>
+        <image name="frame_blue_long" width="875" height="150"/>
     </resources>
 </document>

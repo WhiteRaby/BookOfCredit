@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
     <entity name="BOCCurrency" representedClassName="BOCCurrency" syncable="YES">
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BOCDebt" inverseName="currency" inverseEntity="BOCDebt" syncable="YES"/>
     </entity>
@@ -16,8 +17,8 @@
         <relationship name="debts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BOCDebt" inverseName="debtor" inverseEntity="BOCDebt" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BOCCurrency" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="BOCDebt" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="BOCDebtor" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="BOCCurrency" positionX="-18" positionY="-333" width="128" height="88"/>
+        <element name="BOCDebt" positionX="-207" positionY="-342" width="128" height="105"/>
+        <element name="BOCDebtor" positionX="-405" positionY="-378" width="128" height="90"/>
     </elements>
 </model>

@@ -11,7 +11,9 @@
 #import "BOCDataManager.h"
 #import "BOCDebt.h"
 #import "BOCDebtor.h"
+#import "BOCCurrency.h"
 #import "BOCDebtTableViewCell.h"
+#import "BOCNewDebtViewController.h"
 
 @interface BOCDebtorDetailViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -54,14 +56,11 @@
 }
 
 - (IBAction)actionAddDebt:(id)sender {
-//    BOCDebt *debt1 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
-//                                                   inManagedObjectContext:[self managedObjectContext]];
-//    debt1.amount = @123;
-//    debt1.debtor = self.debtor;
-//    [self.managedObjectContext save:nil];
     
-    UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BOCNewDebtViewController"];
-    //[self.navigationController pushViewController:vc animated:NO];
+    BOCNewDebtViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BOCNewDebtViewController"];
+    vc.debtor = self.debtor;
+    vc.debt = nil;
+    
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -84,14 +83,49 @@
     BOCDebtTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                  forIndexPath:indexPath];
     
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    }
-    
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
+}
+
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        return @"Вам должны";
+    } else {
+        return @"Вы должны";
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 40.f;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return CGFLOAT_MIN;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -100,18 +134,29 @@
     return 80.f;
 }
 
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return @"Удалить";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    BOCNewDebtViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BOCNewDebtViewController"];
+    vc.debtor = self.debtor;
+    vc.debt = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - UITableView
 
 - (void)configureCell:(BOCDebtTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     BOCDebt *debt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    //NSLog(@"amount = %@, debtor = %@", debt.amount, debt.debtor);
     cell.amount.text = [NSString stringWithFormat:@"%@", debt.amount];
-    if (arc4random_uniform(2)) {
-        cell.currency.image = [UIImage imageNamed:@"euro"];
-    } else {
-        cell.currency.image = [UIImage imageNamed:@"dollar"];
-    }
+    cell.currency.image =[UIImage imageNamed:debt.currency.imageName];
 }
 
 #pragma mark - NSFetchedResultsController
@@ -131,9 +176,9 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    //NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"amount" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"isBorrow" ascending:YES];
     
-    [fetchRequest setSortDescriptors:@[]];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"debtor == %@", self.debtor];
     [fetchRequest setPredicate:predicate];
@@ -143,7 +188,7 @@
     NSFetchedResultsController *aFetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                         managedObjectContext:self.managedObjectContext
-                                          sectionNameKeyPath:nil
+                                          sectionNameKeyPath:@"isBorrow"
                                                    cacheName:nil];
     
     aFetchedResultsController.delegate = self;

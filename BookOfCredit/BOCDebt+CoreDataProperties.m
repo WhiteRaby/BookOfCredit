@@ -2,7 +2,7 @@
 //  BOCDebt+CoreDataProperties.m
 //  BookOfCredit
 //
-//  Created by Alexandr on 04.02.16.
+//  Created by Alexandr on 10.02.16.
 //  Copyright © 2016 Alexandr. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,8 +13,8 @@
 
 @implementation BOCDebt (CoreDataProperties)
 
-@dynamic isBorrow;
 @dynamic amount;
+@dynamic isBorrow;
 @dynamic currency;
 @dynamic debtor;
 
