@@ -24,22 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*BOCDebtor *debtor1 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebtor"
-                                                       inManagedObjectContext:[self managedObjectContext]];
-    debtor1.firstName = @"Sasha";
-    
-    BOCDebtor *debtor2 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebtor"
-                                                       inManagedObjectContext:[self managedObjectContext]];
-    debtor2.firstName = @"John";
-    
-    [self.managedObjectContext save:nil];*/
-    
-    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.backgroundColor = [UIColor
         colorWithRed:240.f/255.f green:251.f/255.f blue:255.f/255.f alpha:1.f];
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

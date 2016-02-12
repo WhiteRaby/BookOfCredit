@@ -152,18 +152,24 @@
 - (IBAction)actionStepper:(UIStepper *)sender {
     NSInteger num = [[self.amountTextView.text substringWithRange:NSMakeRange(0, 1)] integerValue];
     num += (int)sender.value;
+    NSString *resultString;
     
     if (num > 0) {
-        self.amountTextView.text =
+        resultString =
         [NSString stringWithFormat:@"%ld%@", (long)num, [self.amountTextView.text substringFromIndex:1]];
     } else if (num == 0) {
         if ([self.amountTextView.text length] == 1) {
-            self.amountTextView.text = @"0";
+            resultString = @"0";
         } else {
-            self.amountTextView.text =
+            resultString =
             [NSString stringWithFormat:@"%d%@", 9, [self.amountTextView.text substringFromIndex:2]];
         }
     }
+    
+    if (resultString.length < 10) {
+        self.amountTextView.text = resultString;
+    }
+    
     sender.value = 0.f;
 }
 
@@ -190,6 +196,12 @@
     if ([self.amountTextView.text isEqualToString:@"0"]) {
         self.amountTextView.text = @"";
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    return (resultString.length < 10);
 }
 
 @end

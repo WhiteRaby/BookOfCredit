@@ -30,34 +30,10 @@
     self.title = [NSString stringWithFormat:@"%@ %@",
                   self.debtor.firstName, self.debtor.lastName];
     
-    //self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-
-    
-    /*
-    BOCDebt *debt1 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
-                                                       inManagedObjectContext:[self managedObjectContext]];
-    debt1.amount = @200;
-    debt1.debtor = self.debtor;
-    
-    BOCDebt *debt2 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
-                                                       inManagedObjectContext:[self managedObjectContext]];
-    debt2.amount = @20;*/
-    
-    /*NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BOCDebt"];
-    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
-    for (BOCDebt *debt in results) {
-
-        NSLog(@"%@",debt);
-    }*/
-    
-    //[self.managedObjectContext save:nil];
-    
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     self.navigationController.navigationBar.topItem.title = @"Назад";
+    
 }
+
 
 - (IBAction)actionAddDebt:(id)sender {
     
@@ -166,7 +142,13 @@
 - (void)configureCell:(BOCDebtTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     BOCDebt *debt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.amount.text = [NSString stringWithFormat:@"%@", debt.amount];
+    NSString *amount = [NSString stringWithFormat:@"%@", debt.amount];
+    for (NSInteger i = amount.length; i > 0 ; i-=3) {
+        amount = [NSString stringWithFormat:@"%@ %@",
+                  [amount substringToIndex:i],
+                  [amount substringFromIndex:i]];
+    }
+    cell.amount.text = amount;
     cell.currency.image =[UIImage imageNamed:debt.currency.imageName];
     NSLocale *ruLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
