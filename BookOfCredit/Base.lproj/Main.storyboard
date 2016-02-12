@@ -56,13 +56,19 @@
                                                         <constraint firstAttribute="width" constant="42" id="4MG-N2-9u2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-rw-BbS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-rw-BbS">
                                                     <rect key="frame" x="58" y="8" width="128" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="128" id="jC3-8U-mOt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.31336805559999997" green="0.31336805559999997" blue="0.31336805559999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_______DATE________" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czI-og-hqP">
+                                                    <rect key="frame" x="216" y="8" width="151" height="63.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -78,6 +84,7 @@
                                         <connections>
                                             <outlet property="amount" destination="4bW-rw-BbS" id="npd-ne-zkD"/>
                                             <outlet property="currency" destination="iOE-J1-oBc" id="PvO-c7-7pr"/>
+                                            <outlet property="date" destination="czI-og-hqP" id="i6c-km-n7u"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -232,6 +239,7 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="476372367.09020901">
                                                         <!--2016-02-05 13:39:27 +0000-->
                                                     </date>
+                                                    <locale key="locale" localeIdentifier="ru_BY"/>
                                                 </datePicker>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -292,7 +300,7 @@
             </objects>
             <point key="canvasLocation" x="1091.5" y="559.5"/>
         </scene>
-        <!--Должники-->
+        <!--ewfsdfdfsf-->
         <scene sceneID="PeC-nE-xDQ">
             <objects>
                 <viewController id="THG-bS-EgV" customClass="BOCDebtorsViewController" sceneMemberID="viewController">
@@ -321,7 +329,7 @@
                             <constraint firstItem="TWZ-Hu-3lq" firstAttribute="top" secondItem="Sz6-9n-edU" secondAttribute="bottom" id="xsV-9h-Ofq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Должники" id="b26-cU-cAc">
+                    <navigationItem key="navigationItem" title="ewfsdfdfsf" id="b26-cU-cAc">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tep-DE-u0g">
                             <connections>
                                 <action selector="actionAddDebtor:" destination="THG-bS-EgV" id="N4s-1a-CVO"/>

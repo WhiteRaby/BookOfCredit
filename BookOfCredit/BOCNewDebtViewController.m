@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSArray *currencys;
 @property (strong, nonatomic) NSIndexPath *dateCellIndexPath;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (assign, nonatomic) BOOL newDebt;
+
 
 - (IBAction)actionSave:(id)sender;
 - (IBAction)actionCencel:(id)sender;
@@ -66,6 +68,13 @@
         [self.currencyPickerView selectRow:[self.currencys indexOfObject:self.debt.currency]
                                inComponent:0
                                   animated:NO];
+        if (self.debt.endDate) {
+            self.dateOnSwitch.on = YES;
+            [self.datePicker setDate:self.debt.endDate animated:YES];
+        } else {
+            self.dateOnSwitch.on = NO;
+        }
+        
         self.newDebt = NO;
     } else {
         self.debt = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
@@ -114,6 +123,14 @@
     self.debt.debtor = self.debtor;
     self.debt.currency = [self.currencys objectAtIndex:[self.currencyPickerView selectedRowInComponent:0]];
     self.debt.isBorrow = [NSNumber numberWithBool:(BOOL)self.borrowSegmentedControl.selectedSegmentIndex];
+    if (self.dateOnSwitch.isOn) {
+        self.debt.endDate = self.datePicker.date;
+    } else {
+        self.debt.endDate = nil;
+    }
+    if (self.newDebt) {
+        self.debt.startDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    }
     
     [self.managedObjectContext save:nil];
     [self dismissViewControllerAnimated:YES completion:nil];

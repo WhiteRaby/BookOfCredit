@@ -7,7 +7,9 @@
     </entity>
     <entity name="BOCDebt" representedClassName="BOCDebt" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isBorrow" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BOCCurrency" inverseName="debts" inverseEntity="BOCCurrency" syncable="YES"/>
         <relationship name="debtor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BOCDebtor" inverseName="debts" inverseEntity="BOCDebtor" syncable="YES"/>
     </entity>
@@ -17,8 +19,8 @@
         <relationship name="debts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BOCDebt" inverseName="debtor" inverseEntity="BOCDebt" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BOCCurrency" positionX="-18" positionY="-333" width="128" height="88"/>
-        <element name="BOCDebt" positionX="-207" positionY="-342" width="128" height="105"/>
+        <element name="BOCCurrency" positionX="7" positionY="-370" width="128" height="88"/>
+        <element name="BOCDebt" positionX="-207" positionY="-342" width="128" height="133"/>
         <element name="BOCDebtor" positionX="-405" positionY="-378" width="128" height="90"/>
     </elements>
 </model>

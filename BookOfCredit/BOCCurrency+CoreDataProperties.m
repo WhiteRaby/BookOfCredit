@@ -2,7 +2,7 @@
 //  BOCCurrency+CoreDataProperties.m
 //  BookOfCredit
 //
-//  Created by Alexandr on 10.02.16.
+//  Created by Alexandr on 12.02.16.
 //  Copyright © 2016 Alexandr. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,8 +13,8 @@
 
 @implementation BOCCurrency (CoreDataProperties)
 
-@dynamic name;
 @dynamic imageName;
+@dynamic name;
 @dynamic debts;
 
 @end

@@ -13,11 +13,7 @@
 
 @interface BOCNewDebtViewController : UITableViewController
 
-
-
 @property (strong, nonatomic) BOCDebtor *debtor;
 @property (strong, nonatomic) BOCDebt *debt;
-@property (assign, nonatomic) BOOL newDebt;
-
 
 @end

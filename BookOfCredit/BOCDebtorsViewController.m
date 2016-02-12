@@ -34,7 +34,17 @@
     
     [self.managedObjectContext save:nil];*/
     
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.backgroundColor = [UIColor
+        colorWithRed:240.f/255.f green:251.f/255.f blue:255.f/255.f alpha:1.f];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"Долги";
 }
 
 #pragma mark - Action Methods
@@ -117,7 +127,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.backgroundColor = [UIColor colorWithRed:0.9f green:1.f blue:0.9f alpha:1.f];
+        //cell.backgroundColor = [UIColor
+         //   colorWithRed:234.f/255.f green:250.f/255.f blue:255.f/255.f alpha:1.f];
     }
     
     [self configureCell:cell atIndexPath:indexPath];

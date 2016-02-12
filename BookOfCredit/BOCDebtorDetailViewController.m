@@ -32,7 +32,6 @@
     
     //self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 
-    //self.navigationController.navigationBar.topItem.title = @"Назад";
     
     /*
     BOCDebt *debt1 = [NSEntityDescription insertNewObjectForEntityForName:@"BOCDebt"
@@ -55,13 +54,20 @@
     
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.topItem.title = @"Назад";
+}
+
 - (IBAction)actionAddDebt:(id)sender {
     
     BOCNewDebtViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BOCNewDebtViewController"];
     vc.debtor = self.debtor;
     vc.debt = nil;
     
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:vc animated:YES completion:^{
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -89,11 +95,14 @@
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+    BOCDebt *debt = [self.fetchedResultsController objectAtIndexPath:
+                     [NSIndexPath indexPathForRow:0 inSection:section]];
     
-    if (section == 0) {
-        return @"Вам должны";
-    } else {
+    if ([debt.isBorrow boolValue]) {
         return @"Вы должны";
+    } else {
+        return @"Вам должны";
     }
 }
 
@@ -145,7 +154,9 @@
     vc.debtor = self.debtor;
     vc.debt = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:vc animated:YES completion:^{
+        [self.tableView reloadData];
+    }];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -157,6 +168,19 @@
     BOCDebt *debt = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.amount.text = [NSString stringWithFormat:@"%@", debt.amount];
     cell.currency.image =[UIImage imageNamed:debt.currency.imageName];
+    NSLocale *ruLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd.MM.yy"];
+    [formatter setDateFormat:@"dd MMM yyyy"];
+    [formatter setLocale:ruLocale];
+    if (debt.endDate) {
+        cell.date.text = [NSString stringWithFormat:@"от: %@\n\nдо: %@",
+                          [formatter stringFromDate:debt.startDate],
+                          [formatter stringFromDate:debt.endDate]];
+    } else {
+        cell.date.text = [NSString stringWithFormat:@"от: %@",
+                          [formatter stringFromDate:debt.startDate]];
+    }
 }
 
 #pragma mark - NSFetchedResultsController
@@ -176,9 +200,10 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"isBorrow" ascending:YES];
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"isBorrow" ascending:YES];
+    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
     
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    [fetchRequest setSortDescriptors:@[sortDescriptor1, sortDescriptor2]];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"debtor == %@", self.debtor];
     [fetchRequest setPredicate:predicate];

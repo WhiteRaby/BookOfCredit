@@ -2,7 +2,7 @@
 //  BOCCurrency+CoreDataProperties.h
 //  BookOfCredit
 //
-//  Created by Alexandr on 10.02.16.
+//  Created by Alexandr on 12.02.16.
 //  Copyright © 2016 Alexandr. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BOCCurrency (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *imageName;
+@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSSet<BOCDebt *> *debts;
 
 @end
