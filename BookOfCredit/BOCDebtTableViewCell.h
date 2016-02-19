@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *currency;
 @property (strong, nonatomic) IBOutlet UILabel *amount;
+@property (strong, nonatomic) IBOutlet UILabel *leftLabel;
 @property (strong, nonatomic) IBOutlet UILabel *date;
+@property (strong, nonatomic) IBOutlet UILabel *periodLabel;
 
 @end

@@ -25,12 +25,22 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //self.navigationController.navigationBar.translucent = true;
+//[UIColor colorWithRed:240.f/255.f green:251.f/255.f blue:255.f/255.f alpha:1.f];
     
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.backgroundColor = [UIColor
-        colorWithRed:240.f/255.f green:251.f/255.f blue:255.f/255.f alpha:1.f];
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    CGRect frame = self.view.bounds;
+    frame.origin = CGPointZero;
+    UIImageView *bachground = [[UIImageView alloc] initWithFrame:frame];
+    [bachground setImage:[UIImage imageNamed:@"background_3"]];
+    //[self.view addSubview:bachground];
+    //[self.view sendSubviewToBack:bachground];
+    self.tableView.backgroundView = bachground;
+    
+    //[self.view bringSubviewToFront:self.tableView];
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,7 +128,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        //cell.backgroundColor = [UIColor
+        cell.backgroundColor = [UIColor clearColor];
          //   colorWithRed:234.f/255.f green:250.f/255.f blue:255.f/255.f alpha:1.f];
     }
     

@@ -24,6 +24,12 @@
 
 @implementation BOCDebtorDetailViewController
 
+static NSString *periodNames[] = {
+    @"день", @"дня", @"дней",
+    @"месяц", @"месяца", @"месяцев",
+    @"год", @"года", @"лет",
+};
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -137,7 +143,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - UITableView
+#pragma mark - UITableViewConfigureCell
 
 - (void)configureCell:(BOCDebtTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
@@ -150,18 +156,63 @@
     }
     cell.amount.text = amount;
     cell.currency.image =[UIImage imageNamed:debt.currency.imageName];
-    NSLocale *ruLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd.MM.yy"];
-    [formatter setDateFormat:@"dd MMM yyyy"];
-    [formatter setLocale:ruLocale];
+    cell.backgroundColor = [UIColor whiteColor];
+    
     if (debt.endDate) {
-        cell.date.text = [NSString stringWithFormat:@"от: %@\n\nдо: %@",
-                          [formatter stringFromDate:debt.startDate],
-                          [formatter stringFromDate:debt.endDate]];
+        NSDate *leftDate = [NSDate dateWithTimeInterval:86400 sinceDate:debt.endDate];
+        
+        NSDateComponents *components = [[NSCalendar currentCalendar]
+                                        components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
+                                        fromDate:[NSDate dateWithTimeIntervalSinceNow:0]
+                                        toDate:leftDate
+                                        options:0];
+        
+        NSInteger day = [components day];
+        NSInteger month = [components month];
+        NSInteger year = [components year];
+        NSInteger period;
+        NSInteger count;
+        
+        if (year > 0) {
+            cell.date.text = [NSString stringWithFormat:@"%ld", (long)year];
+            period = 2;
+            count = year;
+        } else if (month > 0) {
+            cell.date.text = [NSString stringWithFormat:@"%ld", (long)month];
+            period = 1;
+            count = month;
+        } else if (day > 0) {
+            cell.date.text = [NSString stringWithFormat:@"%ld", (long)day];
+            period = 0;
+            count = day;
+        } else {
+            day = 0;
+            cell.date.text = [NSString stringWithFormat:@"%ld", (long)day];
+            period = 0;
+            count = day;
+            cell.backgroundColor = [UIColor colorWithRed:1.f green:0.86f blue:0.86f alpha:1.f];
+        }
+        
+        if (count == 1) {
+            count = 0;
+        } else if (count >= 2 && count <= 4) {
+            count = 1;
+        } else {
+            count = 2;
+        }
+        
+        cell.periodLabel.text = periodNames[period*3 + count];
+        
+        if (count == 0) {
+            cell.leftLabel.text = @"Остался";
+        } else {
+            cell.leftLabel.text = @"Осталось";
+        }
+        
     } else {
-        cell.date.text = [NSString stringWithFormat:@"от: %@",
-                          [formatter stringFromDate:debt.startDate]];
+        cell.periodLabel.text = nil;
+        cell.date.text = nil;
+        cell.leftLabel.text = nil;
     }
 }
 
