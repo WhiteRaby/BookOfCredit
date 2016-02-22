@@ -21,26 +21,19 @@
 
 @implementation BOCDebtorsViewController
 
+#pragma mark - Public methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    //self.navigationController.navigationBar.translucent = true;
-//[UIColor colorWithRed:240.f/255.f green:251.f/255.f blue:255.f/255.f alpha:1.f];
-    
-    
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     CGRect frame = self.view.bounds;
     frame.origin = CGPointZero;
     UIImageView *bachground = [[UIImageView alloc] initWithFrame:frame];
     [bachground setImage:[UIImage imageNamed:@"background_3"]];
-    //[self.view addSubview:bachground];
-    //[self.view sendSubviewToBack:bachground];
     self.tableView.backgroundView = bachground;
-    
-    //[self.view bringSubviewToFront:self.tableView];
-    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -138,7 +131,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+
     return YES;
 }
 
@@ -149,22 +142,17 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
     }
 }
 
-
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //[self performSegueWithIdentifier:@"DebtorDetailSegue" sender:self];
-    //BOCDebtorDetailViewController *vc = [[BOCDebtorDetailViewController alloc] init];
     BOCDebtorDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DebtorDetail"];
     vc.debtor = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.navigationController pushViewController:vc animated:YES];

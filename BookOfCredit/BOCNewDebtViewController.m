@@ -37,15 +37,21 @@
 
 @implementation BOCNewDebtViewController
 
+#pragma mark - Public Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BOCCurrency"];
     self.currencys = [self.managedObjectContext executeFetchRequest:request error:nil];
-    
     self.amountTextView.text = @"0";
-    
     self.amountTextView.delegate = self;
+    
+    [self loadNumberToolbar];
+    [self loadContent];
+}
+
+- (void)loadNumberToolbar {
     
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleDefault;
@@ -56,8 +62,6 @@
     
     [numberToolbar sizeToFit];
     self.amountTextView.inputAccessoryView = numberToolbar;
-    
-    [self loadContent];
 }
 
 - (void)loadContent {
@@ -84,10 +88,7 @@
     
 }
 
-- (void)doneWithNumberPad{
-    [self.amountTextView resignFirstResponder];
-}
-
+#pragma mark - UIPickerViewDataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     
@@ -98,6 +99,8 @@
     
     return [self.currencys count];
 }
+
+#pragma mark - UIPickerViewDelegate
 
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
@@ -116,6 +119,12 @@
     }
     
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+#pragma mark - Actions
+
+- (void)doneWithNumberPad{
+    [self.amountTextView resignFirstResponder];
 }
 
 - (IBAction)actionSave:(id)sender {
@@ -173,16 +182,7 @@
     sender.value = 0.f;
 }
 
-#pragma mark - NSManagedObjectContext
-
-- (NSManagedObjectContext*)managedObjectContext {
-    
-    if (!_managedObjectContext) {
-        _managedObjectContext = [[BOCDataManager sharedManager] managedObjectContext];
-    }
-    
-    return _managedObjectContext;
-}
+#pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
@@ -202,6 +202,17 @@
     
     NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return (resultString.length < 10);
+}
+
+#pragma mark - NSManagedObjectContext
+
+- (NSManagedObjectContext*)managedObjectContext {
+    
+    if (!_managedObjectContext) {
+        _managedObjectContext = [[BOCDataManager sharedManager] managedObjectContext];
+    }
+    
+    return _managedObjectContext;
 }
 
 @end
